@@ -1,4 +1,4 @@
-function prime_sifter() {
+function primeArray() {
   var prime = [2, 3, 5, 7];
   var array = [];
   for(var i = 2; i <= 100; i++) {
@@ -10,12 +10,20 @@ function prime_sifter() {
         if(array[j]/prime[k] !== 1) {
           var firstPart = array.slice(0,j);
           var secondPart = array.slice((j+1),array.length);
-          console.log(firstPart);
           array = firstPart.concat(secondPart);
-          console.log(array);
         }
       }
     }
   }
   return array
+}
+
+function prime_sifter(number) {
+  var prime = primeArray();
+  for (var i = 0; i < prime.length; i++) {
+    if(prime[i] > number) {
+      var firstPart = prime.slice(0,i);
+      return firstPart;
+    }
+  }
 }
